@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { TempformComponent } from './tempform/tempform.component';
 
-// angular material imports  
+// angular material imports
 
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -19,10 +19,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
-    // forms imports  
-import { FormsModule} from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+    // forms imports
 
+import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { HomeComponent } from './home/home.component';
     TempformComponent,
     RectformComponent,
     HomeComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -38,8 +40,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
 
-
-    // angular material imports  
+    // angular material imports
 
     MatCardModule,
     MatFormFieldModule,
@@ -49,9 +50,11 @@ import { HomeComponent } from './home/home.component';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    // forms imports  
     
-    FormsModule
+    // forms imports
+
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

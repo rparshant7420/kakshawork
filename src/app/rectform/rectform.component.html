@@ -1,0 +1,113 @@
+<mat-card>
+  <mat-toolbar color="primary">
+    Reactive Form
+  </mat-toolbar>
+  <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+    <!-- Here [formGroup]="myReactiveForm" is used to link UI of this Form with ts file and "myReactiveForm" is same as name provided in ts file -->
+
+    <mat-form-field >
+      <mat-label>Enter Your Name</mat-label>
+      <input matInput formControlName="username" placeholder="Ex. Yash Rana" [ngClass]="{'is-invalid':submitted && f.username.errors}">
+      <!-- Here "formControlName" is used to link controls of our Form with ts file and value of it should be same as name  given to control in ts file("username")  -->
+    </mat-form-field>
+
+    <mat-error *ngIf="submitted && f.username.errors">
+       <mat-error *ngIf="f.username.errors?.required">
+         You should enter your Name.
+       </mat-error>
+
+
+    </mat-error>
+    <br><br>
+
+    <mat-form-field >
+      <mat-label>Enter Your Email</mat-label>
+      <input matInput formControlName="email" placeholder="Ex. yash2001@gmail.com" [ngClass]="{'is-invalid':submitted && f.email.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.email.errors">
+      <mat-error *ngIf="f.email.errors?.required">
+        You should enter your Email.
+
+      </mat-error>
+
+    <mat-error *ngIf="f.email.errors?.email">
+        You entered a wrong Email.
+      </mat-error>
+    </mat-error>
+    <br><br>
+    <mat-radio-group [ngClass]="{'is-invalid':submitted && f.gender.errors}" formControlName="gender" aria-label="Select an Gender">
+      <mat-radio-button value="1">Male</mat-radio-button>
+      <mat-radio-button value="2">Female</mat-radio-button>
+      <mat-radio-button value="3">Other</mat-radio-button>
+    </mat-radio-group>
+    <mat-error *ngIf="submitted && f.gender.errors">
+      <mat-error *ngIf="f.gender.errors?.required">
+        You should select your Gender.
+      </mat-error>
+    </mat-error>
+
+    <br><br>
+    <mat-form-field >
+      <mat-label >Enter Your Contact</mat-label>
+      <input type="text" formControlName="contact" matInput [ngClass]="{'is-invalid':submitted && f.contact.errors}" >
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.contact.errors">
+      <mat-error *ngIf="f.contact.errors?.required">
+         You should enter your Contact.
+      </mat-error>
+    </mat-error>
+    <br><br>
+    <!-- <mat-form-field [ngClass]="{'is-invalid':submitted && f.locations.invalid}">
+      <mat-label>Locations</mat-label>
+      <select matNativeControl formControlName="location" required>
+        <option value="1">Mohali</option>
+        <option value="2">Chandigarh</option>
+        <option value="3">Haryana</option>
+        <option value="4">Balongi</option>
+      </select>
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.location.errors">
+      <mat-error *ngIf="f.location.errors?.required">
+         You should select your location.
+      </mat-error>
+    </mat-error>
+    <br><br> -->
+    <mat-form-field>
+      <mat-label>Enter Your Password</mat-label>
+      <input matInput type="text" formControlName="password"  [ngClass]="{'is-invalid':submitted && f.password.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.password.errors">
+      <mat-error *ngIf="f.password.errors?.required">
+         You should enter your Password.
+      </mat-error>
+    </mat-error>
+    <br><br>
+    <mat-form-field>
+      <mat-label>Confirm Your Password</mat-label>
+      <input matInput type="text" [ngClass]="{'is-invalid':submitted && f.cpassword.errors}">
+    </mat-form-field>
+    <mat-error *ngIf="submitted && f.cpassword.errors">
+      <mat-error *ngIf="f.cpassword.errors?.required">
+        You should confirm your Password.
+      </mat-error>
+    </mat-error>
+    <br><br>
+    <section class="example-section" [ngClass]="{'is-invalid':submitted && f.checkbox.invalid}">
+      <mat-checkbox class="example-margin"  type="checkbox" formControlName="terms" matInput >I accept the terms and conditions in the license agreement</mat-checkbox>
+    </section>
+    <mat-error *ngIf="submitted && f.checkbox.errors">
+      <mat-error *ngIf="f.checkbox.errors?.required">
+         You should accept Terms and Conditions first.
+      </mat-error>
+    </mat-error>
+    <br><br>
+    <button class="butn" mat-raised-button color="primary" type="submit">
+      Submit Now
+    </button>
+    <br><br>
+    <button class="butn" mat-raised-button color="primary" type="reset">
+      Reset All
+    </button>
+
+  </form>
+</mat-card>

@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+*{
+  font-family: 'Akaya Telivigala', cursive;
+}
+button.butn{
+  width: 100%;
+}
+mat-form-field{
+  width: 95%;
+}

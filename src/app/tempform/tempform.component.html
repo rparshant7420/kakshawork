@@ -3,7 +3,7 @@
         Template-Driven Form
     </mat-toolbar>
     <form name="form" #userform="ngForm" (ngSubmit)="userform.form.valid && getvalues(userform)" novalidate>
-        
+
         <mat-form-field >
              <mat-label>Enter Your Name</mat-label>
             <input matInput placeholder="Ex. Yash Rana" required [(ngModel)]="model.username" name="username" #username="ngModel" minlength="5" [ngClass]="{'is-invalid':userform.submitted && username.invalid}" >
@@ -48,7 +48,7 @@
             </mat-error>
           </mat-error>
           <br><br>
-          <mat-form-field appearance="fill">
+          <mat-form-field >
             <mat-label>Select Your Location</mat-label>
             <mat-select color="primary" name="location" required #location="ngModel" [(ngModel)]="model.location"
             [ngClass]="{'is-invalid':userform.submitted && location.invalid}">
@@ -62,7 +62,7 @@
            <mat-error *ngIf="location.errors?.required">
             You should select your Location.
            </mat-error>
-          </mat-error>    
+          </mat-error>
           <br><br>
           <mat-form-field>
             <input type="text" matInput required placeholder="Enter Your Password" [(ngModel)]="model.usrpswrd" name="usrpswrd"
